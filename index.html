@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Jennifer</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <nav>
@@ -93,5 +94,85 @@
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Ambil semua elemen section
+    var sections = document.querySelectorAll('section');
+    
+    // Tambahkan event listener untuk scroll
+    window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY; // Ambil posisi scroll saat ini
+        
+        // Cek setiap section
+        sections.forEach(function(section) {
+            // Jika posisi scroll lebih tinggi atau sama dengan bagian atas section, dan kurang dari bagian bawah section
+            if (scrollPos >= section.offsetTop - window.innerHeight / 2) {
+                // Tambahkan kelas 'visible' ke section
+                section.classList.add('visible');
+            } else {
+                // Hapus kelas 'visible' dari section
+                section.classList.remove('visible');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Ambil semua elemen gambar
+    var images = document.querySelectorAll('img');
+    
+    // Tambahkan event listener untuk klik pada gambar
+    images.forEach(function(image) {
+        image.addEventListener('click', function() {
+            // Perbesar gambar saat diklik
+            image.style.transform = 'scale(1.2)';
+            
+            // Kembalikan gambar ke ukuran semula setelah 300ms
+            setTimeout(function() {
+                image.style.transform = '';
+            }, 300);
+        });
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Ambil elemen yang ingin Anda animasikan
+    var element = document.querySelector('.moving-background');
+    
+    // Set waktu interval untuk animasi
+    setInterval(function() {
+        // Ubah properti background-position
+        element.style.backgroundPositionX = parseInt(element.style.backgroundPositionX, 10) + 1 + '%';
+    }, 100);
+});
+</script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuLinks = document.querySelectorAll('.menu a');
+        
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSection = document.querySelector(link.getAttribute('href'));
+                
+                console.log('Target Section:', targetSection); // Periksa target section
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+
+</script>
 </body>
 </html>

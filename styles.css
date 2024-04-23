@@ -126,3 +126,27 @@ p {
     background: #dedede;
     padding: 50px 0px 50px 0px ;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes moveBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+.moving-background {
+    animation: moveBackground 10s linear infinite; /* Ubah durasi sesuai keinginan */
+}
